@@ -3,9 +3,9 @@
 HTTP and TLS  run over TCP.  Every time a new TCP
 connection is created:
 
-1) TCP protocol handshakes
-2) TLS subsequently handshakes, if applicable
-3) TCP slowstart
+1. TCP protocol handshakes
+2. TLS subsequently handshakes, if applicable
+3. TCP slowstart
 
 This can be expensive, especially when TLS is involved (which should be
 all servers, in a perfect world), so care should
@@ -42,10 +42,10 @@ cURL will tell you when it's re-using a connection or opening a new one.
 Run the tcpdump monitoring, the mock webserver, and then run tests
 individually.  Ex:
 
-`sudo tcpdump -i lo0 -A -s 0 'tcp[tcpflags] & (tcp-syn|tcp-fin) != 0 and dst port 3005'`
-in a separate window,
+1. `sudo tcpdump -i lo0 -A -s 0 'tcp[tcpflags] & (tcp-syn|tcp-fin) != 0 and dst port 3005'`
+2. in a separate window,
 `rackup base_server.ru -p 3005`
-in a separate window,
+3. in a separate window,
 `ruby <test_file`
 
 ### INTERPRETING RESULTS
@@ -82,9 +82,9 @@ SYN/FIN pairs:
 
 ## RECOMMENDATIONS
 
-1) Servers should always include a `Content-Length` header, to ensure
+1. Servers should always include a `Content-Length` header, to ensure
 clients are able to take advantage of persistent connections.
-2) Ruby clients concerned about performance should use
+2. Ruby clients concerned about performance should use
 [net-http-persistent](http://docs.seattlerb.org/net-http-persistent/) gem instead of `Net::HTTP`,
 unless the entire transmission can be completed within a single
 `Net::HTTP.start` block.  `Net::Http.new` does not perform as-described.
