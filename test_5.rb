@@ -3,6 +3,8 @@ require 'net/http/persistent'
 # Using net/http/persistent gem
 # will re-use the existing connection
 # correctly.
+#
+# MYTH CONFIRMED
 uri = URI('http://localhost:3005')
 
 http = Net::HTTP::Persistent.new 'my_app'

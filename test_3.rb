@@ -1,7 +1,5 @@
 require 'net/http'
 
-
-
 # Using Net::HTTP.new actually re-connects
 # each time, unexpectedly!
 #

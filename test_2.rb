@@ -1,7 +1,5 @@
 require 'net/http'
 
-
-
 # Caling http.request multiple times within a
 # Net::HTTP.start block will persist the connection.
 #
